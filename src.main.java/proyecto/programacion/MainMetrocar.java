@@ -277,24 +277,25 @@ public abstract class MainMetrocar {
 								|| placa.equals(vehiculo9.getPlacaAuto()) || placa.equals(vehiculo10.getPlacaAuto()))) {
 
 							System.out.println("Auto encontrado");
+							System.out.println("Los autos en estado *Reservado o Alquilado* no están disponibles para reservar");
 
-							if ((vehiculo1.getEstadoAuto() == "Disponible")
-									|| (vehiculo2.getEstadoAuto() == "Disponible")
-									|| (vehiculo3.getEstadoAuto() == "Disponible")
-									|| (vehiculo4.getEstadoAuto() == "Disponible")
-									|| (vehiculo5.getEstadoAuto() == "Disponible")
-									|| (vehiculo6.getEstadoAuto() == "Disponible")
-									|| (vehiculo7.getEstadoAuto() == "Disponible")
-									|| (vehiculo8.getEstadoAuto() == "Disponible")
-									|| (vehiculo9.getEstadoAuto() == "Disponible")
-									|| (vehiculo10.getEstadoAuto() == "Disponible")) {
+							if ((vehiculo1.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo2.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo3.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo4.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo5.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo6.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo7.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo8.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo9.getEstadoAuto().equals("Disponible"))
+									|| (vehiculo10.getEstadoAuto().equals("Disponible"))) {
 
 								if (placa.equals(vehiculo1.getPlacaAuto())) {
 									System.out.print("El auto se encuentra en estado: " + vehiculo1.getEstadoAuto());
 									System.out.println();
 									System.out.println(vehiculo1);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo1.setEstadoAuto("Reservado " + "," + " Cliente cédula: " + cedula);
+									vehiculo1.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo1);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -305,7 +306,7 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo3);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo3.setEstadoAuto("Reservado " + "," + " Cliente cédula: " + cedula);
+									vehiculo3.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo3);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -316,7 +317,7 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo4);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo4.setEstadoAuto("Reservado " + "," + " Cliente cédula: " + cedula);
+									vehiculo4.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo4);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -327,7 +328,7 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo7);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo7.setEstadoAuto("Reservado " + "," + " Cliente cédula: " + cedula);
+									vehiculo7.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo7);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -338,7 +339,7 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo10);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo10.setEstadoAuto("Reservado " + "," + " Cliente cédula: " + cedula);
+									vehiculo10.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo10);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -348,30 +349,6 @@ public abstract class MainMetrocar {
 
 						} else {
 							System.out.println("La placa ingresada no es correcta");
-							System.out.println();
-						}
-
-						if ((vehiculo1.getEstadoAuto() == "Reservado") || (vehiculo1.getEstadoAuto() == "Alquilado")
-								|| (vehiculo2.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo2.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo3.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo3.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo4.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo4.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo5.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo5.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo6.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo6.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo7.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo7.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo8.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo8.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo9.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo9.getEstadoAuto().equals("Alquilado"))
-								|| (vehiculo10.getEstadoAuto().equals("Reservado"))
-								|| (vehiculo10.getEstadoAuto().equals("Alquilado"))) {
-
-							System.out.println("El auto se encuentra en estado: Reservado o Alquilado");
 							System.out.println();
 						}
 
@@ -418,3 +395,28 @@ public abstract class MainMetrocar {
 	}
 
 }
+
+//if ((vehiculo1.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo1.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo2.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo2.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo3.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo3.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo4.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo4.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo5.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo5.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo6.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo6.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo7.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo7.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo8.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo8.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo9.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo9.getEstadoAuto().equals("Alquilado"))
+//		|| (vehiculo10.getEstadoAuto().equals("Reservado"))
+//		|| (vehiculo10.getEstadoAuto().equals("Alquilado"))) {
+//
+//	System.out.println("El auto se encuentra en estado: Reservado o Alquilado");
+//	System.out.println();
+//}
