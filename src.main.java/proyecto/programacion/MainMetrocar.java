@@ -398,7 +398,8 @@ public abstract class MainMetrocar {
 				do {
 					System.out.println("EMPLEADO");
 					System.out.println("a. Registrar auto");
-					System.out.println("b. Validar información");
+					System.out.println("b. Alquilar Auto");
+					System.out.println("c. Aplazar fecha de entrega");
 					System.out.println();
 					System.out.println("Digite -1 si desea volver al menú de inicio");
 					literalEmpleado = teclado.nextLine();
