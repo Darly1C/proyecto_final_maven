@@ -1,6 +1,7 @@
 package proyecto.programacion;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public abstract class MainMetrocar {
 		int menuOpcion;
 		String cedula;
 		String literal;
+		String literalEmpleado;
 		String auto = "";
 		String marcaA = "Chevrolet";
 		String marcaB = "Mazda";
@@ -23,8 +25,19 @@ public abstract class MainMetrocar {
 		String marcaD = "Renault";
 		String marcaE = "KIA";
 		String placa;
+		String placaIngresar;
+		String modelo;
+		String marca;
+		int anioFabricacion;
+		String paisFabricacion;
+		String cilindraje;
+		int precioAuto;
+		int numPuertas;
+		int numAuto;
 
-		LocalDate diaHoy = LocalDate.now();
+		LocalDate diaReserva = LocalDate.now();
+		LocalDate diaEntrega = diaReserva.plusDays(2);
+		LocalDate diaEntrega1 = diaReserva.plusDays(1);
 
 		List<Auto> listAuto = new ArrayList<Auto>();
 
@@ -83,6 +96,7 @@ public abstract class MainMetrocar {
 			vehiculo5.setCilindraje("Motor de 1.6L CVT 4 cilindros");
 			vehiculo5.setPrecioAuto(21199);
 			vehiculo5.setTipoAuto("Automóvil");
+			vehiculo5.setDiaEntrega(diaEntrega);
 
 			Auto vehiculo6 = new Auto();
 			vehiculo6.setNombreModelo("D-Max High Power");
@@ -94,6 +108,7 @@ public abstract class MainMetrocar {
 			vehiculo6.setCilindraje("Motor 2.5L Turbo Diésel CRDI");
 			vehiculo6.setPrecioAuto(32599);
 			vehiculo6.setTipoAuto("Camioneta");
+			vehiculo6.setDiaEntrega(diaEntrega1);
 
 			Auto vehiculo7 = new Auto();
 			vehiculo7.setNombreModelo("Hilux");
@@ -139,6 +154,9 @@ public abstract class MainMetrocar {
 			vehiculo10.setPrecioAuto(43999);
 			vehiculo10.setTipoAuto("Camioneta");
 
+			Automovil auto1 = new Automovil();
+			Camioneta camioneta1 = new Camioneta();
+
 			listAuto.add(vehiculo1);
 			listAuto.add(vehiculo2);
 			listAuto.add(vehiculo3);
@@ -149,6 +167,8 @@ public abstract class MainMetrocar {
 			listAuto.add(vehiculo8);
 			listAuto.add(vehiculo9);
 			listAuto.add(vehiculo10);
+			listAuto.add(auto1);
+			listAuto.add(camioneta1);
 
 			System.out.println("****************************************************");
 			System.out.println("_______________Bienvenido a metrocar_______________");
@@ -277,7 +297,9 @@ public abstract class MainMetrocar {
 								|| placa.equals(vehiculo9.getPlacaAuto()) || placa.equals(vehiculo10.getPlacaAuto()))) {
 
 							System.out.println("Auto encontrado");
-							System.out.println("Los autos en estado *Reservado o Alquilado* no están disponibles para reservar");
+							System.out.println(
+									"Los autos en estado *Reservado o Alquilado* no están disponibles para reservar");
+							System.out.println();
 
 							if ((vehiculo1.getEstadoAuto().equals("Disponible"))
 									|| (vehiculo2.getEstadoAuto().equals("Disponible"))
@@ -295,7 +317,8 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo1);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo1.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+									vehiculo1.setEstadoAuto(
+											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo1);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -306,7 +329,8 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo3);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo3.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+									vehiculo3.setEstadoAuto(
+											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo3);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -317,7 +341,8 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo4);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo4.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+									vehiculo4.setEstadoAuto(
+											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo4);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -328,7 +353,8 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo7);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo7.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+									vehiculo7.setEstadoAuto(
+											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo7);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -339,7 +365,8 @@ public abstract class MainMetrocar {
 									System.out.println();
 									System.out.println(vehiculo10);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
-									vehiculo10.setEstadoAuto("Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+									vehiculo10.setEstadoAuto(
+											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo10);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -365,11 +392,130 @@ public abstract class MainMetrocar {
 				break;
 
 			case 2:
-				System.out.println("EMPLEADO");
-				System.out.println("a. ");
-				System.out.println("b. ");
-				System.out.println();
-				System.out.println("Digite -1 si desea volver al menú de inicio");
+				do {
+					System.out.println("EMPLEADO");
+					System.out.println("a. Registrar auto");
+					System.out.println("b. Validar información");
+					System.out.println();
+					System.out.println("Digite -1 si desea volver al menú de inicio");
+					literalEmpleado = teclado.nextLine();
+
+					switch (literalEmpleado) {
+
+					case "a":
+						do {
+							System.out.println("Elija que tipo de auto desea registrar");
+							System.out.println("1. Automóvil");
+							System.out.println("2. Camioneta");
+							System.out.println();
+							System.out.println("Digite -1 si desea volver al menú de inicio");
+							numAuto = tecladoInt.nextInt();
+
+							switch (numAuto) {
+							case 1:
+
+								System.out.print("Placa: ");
+								placaIngresar = teclado.nextLine();
+								System.out.print("Modelo: ");
+								modelo = teclado.nextLine();
+								System.out.print("Marca: ");
+								marca = teclado.nextLine();
+								System.out.print("Año de fabricación: ");
+								anioFabricacion = tecladoInt.nextInt();
+								System.out.print("País de fabricación: ");
+								paisFabricacion = teclado.nextLine();
+								System.out.print("Cilindraje: ");
+								cilindraje = teclado.nextLine();
+								System.out.print("Precio de auto: ");
+								precioAuto = tecladoInt.nextInt();
+								System.out.print("Número de puertas: ");
+								numPuertas = tecladoInt.nextInt();
+
+								auto1.setNombreModelo(modelo);
+								auto1.setNombreMarca(marca);
+								auto1.setPlacaAuto(placaIngresar);
+								auto1.setAnioFabricacion(anioFabricacion);
+								auto1.setPaisOrigenAuto(paisFabricacion);
+								auto1.setCilindraje(cilindraje);
+								auto1.setPrecioAuto(precioAuto);
+								auto1.setTipoAuto("Automóvil");
+								auto1.setNumeroPuertas(numPuertas);
+								System.out.println();
+
+								listAuto.add(auto1);
+
+								System.out.print(auto1);
+								System.out.print(" # Puertas: " + auto1.getNumeroPuertas());
+								System.out.println();
+								System.out.println();
+
+								System.out.println("El automóvil ha sido guardado exitosamente");
+
+								break;
+
+							case 2:
+
+								System.out.print("Placa: ");
+								placaIngresar = teclado.nextLine();
+								System.out.print("Modelo: ");
+								modelo = teclado.nextLine();
+								System.out.print("Marca: ");
+								marca = teclado.nextLine();
+								System.out.print("Año de fabricación: ");
+								anioFabricacion = tecladoInt.nextInt();
+								System.out.print("País de fabricación: ");
+								paisFabricacion = teclado.nextLine();
+								System.out.print("Cilindraje: ");
+								cilindraje = teclado.nextLine();
+								System.out.print("Precio de auto: ");
+								precioAuto = tecladoInt.nextInt();
+								System.out.print("Peso que soporta: ");
+								double peso = tecladoInt.nextInt();
+
+								camioneta1.setNombreModelo(modelo);
+								camioneta1.setNombreMarca(marca);
+								camioneta1.setPlacaAuto(placaIngresar);
+								camioneta1.setAnioFabricacion(anioFabricacion);
+								camioneta1.setPaisOrigenAuto(paisFabricacion);
+								camioneta1.setCilindraje(cilindraje);
+								camioneta1.setPrecioAuto(precioAuto);
+								camioneta1.setTipoAuto("Camioneta");
+								camioneta1.setPesoSoporta(peso);
+								System.out.println();
+
+								listAuto.add(camioneta1);
+
+								System.out.print(camioneta1);
+								System.out.print(" Peso que soporta: " + camioneta1.getPesoSoporta() + "kg");
+								System.out.println();
+								System.out.println();
+
+								System.out.println("La camioneta ha sido guardado exitosamente");
+
+								break;
+
+							default:
+
+								System.out.println("Elija literal/opción correcto");
+								System.out.println();
+
+								break;
+							}
+
+						} while (numAuto != -1);
+
+						break;
+
+					case "b":
+						break;
+
+					default:
+						System.out.println("Elija literal/opción correcto");
+						System.out.println();
+						break;
+					}
+
+				} while (!literalEmpleado.equals("-1"));
 
 				break;
 
@@ -378,6 +524,7 @@ public abstract class MainMetrocar {
 				System.out.println("____________________Vuelva pronto___________________");
 				System.out.println();
 				System.out.println("****************************************************");
+
 				break;
 
 			default:

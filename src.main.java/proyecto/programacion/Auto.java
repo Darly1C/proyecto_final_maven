@@ -13,6 +13,8 @@ public class Auto {
 	private int precioAuto;
 	private String estadoAuto;
 	private String tipoAuto;
+	private LocalDate diaEntrega;
+	private LocalDate diaReserva;
 
 	// Métodos SET y GET
 	public String getNombreModelo() {
@@ -87,11 +89,27 @@ public class Auto {
 		this.tipoAuto = tipoAuto;
 	}
 
+	public LocalDate getDiaEntrega() {
+		return diaEntrega;
+	}
+
+	public void setDiaEntrega(LocalDate diaEntrega) {
+		this.diaEntrega = diaEntrega;
+	}
+
+	public LocalDate getDiaReserva() {
+		return diaReserva;
+	}
+
+	public void setDiaReserva(LocalDate diaReserva) {
+		this.diaReserva = diaReserva;
+	}
+
 	@Override
 	public String toString() {
-		return "Auto [Placa: " + placaAuto + ", Modelo: " + nombreModelo + ", Marca: " + nombreMarca + ","
-				+ " País Origen: " + paisOrigenAuto + ", Año: " + anioFabricacion + ", Precio: $" + precioAuto
-				+ ", Estado: " + estadoAuto + "]";
+		return "Auto [Placa: " + placaAuto + " - Modelo: " + nombreModelo + " - Marca: " + nombreMarca + " -"
+				+ " Tipo de Auto: " + tipoAuto + " - País Origen: " + paisOrigenAuto + " - Año: " + anioFabricacion + " - Precio: $" + precioAuto
+				+ " - Estado: " + estadoAuto + " - Fecha de entrega: " + diaEntrega + "]";
 	}
 
 }

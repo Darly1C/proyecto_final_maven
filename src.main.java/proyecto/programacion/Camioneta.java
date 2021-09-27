@@ -1,6 +1,6 @@
 package proyecto.programacion;
 
-public final class Camioneta {
+public final class Camioneta extends Auto{
 
 	private double pesoSoporta;
 
