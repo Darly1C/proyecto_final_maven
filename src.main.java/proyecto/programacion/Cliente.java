@@ -13,4 +13,9 @@ public final class Cliente extends Usuario {
 		this.cedula = cedula;
 	}
 
+	@Override
+	public String toString() {
+		return " Cliente [ Cedula:  " + cedula + "]";
+	}
+
 }

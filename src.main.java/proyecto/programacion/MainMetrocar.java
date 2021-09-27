@@ -42,6 +42,9 @@ public abstract class MainMetrocar {
 		List<Auto> listAuto = new ArrayList<Auto>();
 
 		do {
+			Cliente cliente1 = new Cliente();
+			Cliente cliente2 = new Cliente();
+
 			Auto vehiculo1 = new Auto();
 			vehiculo1.setNombreModelo("Spark GT");
 			vehiculo1.setNombreMarca("Chevrolet");
@@ -318,7 +321,7 @@ public abstract class MainMetrocar {
 									System.out.println(vehiculo1);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
 									vehiculo1.setEstadoAuto(
-											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+											"Reservado " + "-" + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo1);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -330,7 +333,7 @@ public abstract class MainMetrocar {
 									System.out.println(vehiculo3);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
 									vehiculo3.setEstadoAuto(
-											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+											"Reservado " + "-" + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo3);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -342,7 +345,7 @@ public abstract class MainMetrocar {
 									System.out.println(vehiculo4);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
 									vehiculo4.setEstadoAuto(
-											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+											"Reservado " + "-" + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo4);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -354,7 +357,7 @@ public abstract class MainMetrocar {
 									System.out.println(vehiculo7);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
 									vehiculo7.setEstadoAuto(
-											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+											"Reservado " + "-" + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo7);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -366,7 +369,7 @@ public abstract class MainMetrocar {
 									System.out.println(vehiculo10);
 									System.out.println("El auto se ha reservado con los siguientes datos: ");
 									vehiculo10.setEstadoAuto(
-											"Reservado " + "," + " Reservado al cliente - cédula:" + cedula);
+											"Reservado " + "-" + " Reservado al cliente - cédula:" + cedula);
 									System.out.println(vehiculo10);
 									System.out.println("Pase a retirarlo en el patio de autos");
 									System.out.println();
@@ -507,6 +510,33 @@ public abstract class MainMetrocar {
 						break;
 
 					case "b":
+
+						System.out.print("Ingrese la placa del auto que desea validar: ");
+						placa = teclado.nextLine();
+						if ((placa.equals(vehiculo1.getPlacaAuto()) || placa.equals(vehiculo2.getPlacaAuto())
+								|| placa.equals(vehiculo3.getPlacaAuto()) || placa.equals(vehiculo4.getPlacaAuto())
+								|| placa.equals(vehiculo5.getPlacaAuto()) || placa.equals(vehiculo6.getPlacaAuto())
+								|| placa.equals(vehiculo7.getPlacaAuto()) || placa.equals(vehiculo8.getPlacaAuto())
+								|| placa.equals(vehiculo9.getPlacaAuto()) || placa.equals(vehiculo10.getPlacaAuto()))) {
+
+							System.out.println("Auto encontrado");
+							System.out.println();
+
+							if ((vehiculo1.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo2.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo3.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo4.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo5.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo6.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo7.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo8.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo9.getEstadoAuto().equals("Reservado"))
+									|| (vehiculo10.getEstadoAuto().equals("Reservado"))) {
+
+								vehiculo5.setEstadoAuto("Reservado " + " - " + cliente1.getCedula());
+								System.out.println(vehiculo5);
+							}
+						}
 						break;
 
 					default:
