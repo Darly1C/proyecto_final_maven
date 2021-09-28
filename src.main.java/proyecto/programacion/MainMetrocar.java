@@ -38,12 +38,16 @@ public abstract class MainMetrocar {
 		LocalDate diaReserva = LocalDate.now();
 		LocalDate diaEntrega = diaReserva.plusDays(2);
 		LocalDate diaEntrega1 = diaReserva.plusDays(1);
+		
+		LocalDate diaEntregaActual = diaReserva.plusDays(2);
 
 		List<Auto> listAuto = new ArrayList<Auto>();
 
 		do {
 			Cliente cliente1 = new Cliente();
+			cliente1.setCedula("1725464879");
 			Cliente cliente2 = new Cliente();
+			cliente2.setCedula("1756443475");
 
 			Auto vehiculo1 = new Auto();
 			vehiculo1.setNombreModelo("Spark GT");
@@ -199,6 +203,7 @@ public abstract class MainMetrocar {
 					case "a":
 						System.out.print("Ingrese el modelo y/o marca del auto: ");
 						auto = teclado.nextLine();
+						System.out.println();
 
 						if (auto.contains(marcaA)) {
 							System.out.println("Vehículos Chevrolet");
@@ -292,17 +297,26 @@ public abstract class MainMetrocar {
 						placa = teclado.nextLine();
 						System.out.print("Ingrese su número de cédula: ");
 						cedula = teclado.nextLine();
+						System.out.print("Ingrese id cantidad: ");
+						String idCantidad = teclado.nextLine();
 						System.out.println();
+						String idCantidadEnMayuscula = idCantidad.toUpperCase();
+						System.out.println();
+						
 						if ((placa.equals(vehiculo1.getPlacaAuto()) || placa.equals(vehiculo2.getPlacaAuto())
 								|| placa.equals(vehiculo3.getPlacaAuto()) || placa.equals(vehiculo4.getPlacaAuto())
 								|| placa.equals(vehiculo5.getPlacaAuto()) || placa.equals(vehiculo6.getPlacaAuto())
 								|| placa.equals(vehiculo7.getPlacaAuto()) || placa.equals(vehiculo8.getPlacaAuto())
 								|| placa.equals(vehiculo9.getPlacaAuto()) || placa.equals(vehiculo10.getPlacaAuto()))) {
 
-							System.out.println("Auto encontrado");
 							System.out.println(
-									"Los autos en estado *Reservado o Alquilado* no están disponibles para reservar");
+									"AVISO// Los autos en estado *Reservado o Alquilado* no están disponibles para reservar");
 							System.out.println();
+							System.out.println("Auto encontrado");
+							System.out.print("Id Cantidad en mayúsculas: " + idCantidadEnMayuscula);
+							System.out.println();
+							System.out.println();
+							
 
 							if ((vehiculo1.getEstadoAuto().equals("Disponible"))
 									|| (vehiculo2.getEstadoAuto().equals("Disponible"))
@@ -538,6 +552,10 @@ public abstract class MainMetrocar {
 								System.out.println(vehiculo5);
 							}
 						}
+						break;
+						
+					case "c":
+						
 						break;
 
 					default:
